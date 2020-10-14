@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using SimpleAPI.Services;
 
 namespace SimpleAPI.Middleware
 {
@@ -13,7 +14,7 @@ namespace SimpleAPI.Middleware
             _next = next;
         }
 
-        public async Task InvokeAsync(HttpContext context)
+        public async Task InvokeAsync(HttpContext context, IPaymentService paymentService)
         {
             // my logic
             await context.Response.WriteAsync("Hello from middleware!");

@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SimpleAPI.Middleware;
+using SimpleAPI.Repositories;
 using SimpleAPI.Services;
 
 namespace SimpleAPI
@@ -30,11 +31,12 @@ namespace SimpleAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            if (Environment.IsDevelopment())
-                services.AddTransient<IPaymentService, PaymentService>();
-            else
-                services.AddTransient<IPaymentService, ExternalPaymentService>();
-
+            // if (Environment.IsDevelopment())
+            //     services.AddTransient<IPaymentService, PaymentService>();
+            // else
+            //     services.AddTransient<IPaymentService, ExternalPaymentService>();
+            
+            services.AddSingleton<IOrderRepository, MemoryOrderRepository>();
             services.AddControllers();
         }
 

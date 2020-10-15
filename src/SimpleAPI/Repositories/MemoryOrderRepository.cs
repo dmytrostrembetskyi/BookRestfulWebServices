@@ -28,7 +28,7 @@ namespace SimpleAPI.Repositories
 
         public IEnumerable<Order> Get() => _orders;
 
-        public Order GetOrder(Guid orderId)
+        public Order Get(Guid orderId)
         {
             return _orders.FirstOrDefault(o => o.Id == orderId);
         }

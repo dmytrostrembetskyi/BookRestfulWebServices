@@ -444,3 +444,7 @@ MigrationBackup/
 .ionide/
 
 # End of https://www.toptal.com/developers/gitignore/api/rider,visualstudio,visualstudiocode
+
+# Rider REST API requests and responses
+/.idea/.idea.BookRestfulWebServices/.idea/httpRequests/http-requests-log.http
+/.idea/.idea.BookRestfulWebServices/.idea/httpRequests/*.json

@@ -1,0 +1,17 @@
+GET https://localhost:5001/api/order
+
+###
+
+POST https://localhost:5001/api/order
+Content-Type: application/json
+
+{
+"itemsIds": [
+"1",
+"4"
+]
+}
+
+###
+
+GET https://localhost:5001/api/order/9fc5e92c-62c3-44dd-9cbb-07126773aac7

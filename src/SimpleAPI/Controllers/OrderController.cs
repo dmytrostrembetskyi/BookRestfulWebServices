@@ -73,11 +73,17 @@ namespace SimpleAPI.Controllers
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id:guid}")]
         public IActionResult Delete(Guid id)
         {
+            var order = _orderRepository.Get(id);
+            if (order == null)
+            {
+                return NotFound(new {Message = $"Item with id {id} not exist."});
+            }
+            
             _orderRepository.Delete(id);
-            return Ok();
+            return NoContent();
         }
     }
 }

@@ -53,3 +53,6 @@ Content-Type: application/json
 "path": "/itemsIds"
 }
 ]
+
+###
+DELETE https://localhost:5001/api/order/b5d4a2bc-c888-4994-99a3-c48891c440b2

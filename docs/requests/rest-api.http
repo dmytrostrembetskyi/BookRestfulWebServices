@@ -1,7 +1,6 @@
 GET https://localhost:5001/api/order
 
 ###
-
 POST https://localhost:5001/api/order
 Content-Type: application/json
 
@@ -13,5 +12,44 @@ Content-Type: application/json
 }
 
 ###
-
 GET https://localhost:5001/api/order/9fc5e92c-62c3-44dd-9cbb-07126773aac7
+
+###
+PATCH https://localhost:5001/api/order/03beff68-bc70-4b34-8264-cc243f6ef686
+Content-Type: application/json
+
+[
+{
+"op": "replace",
+"path": "/itemsIds",
+"value": [
+1,
+2
+]
+}
+]
+
+### 'add' is replacing instead of adding. I am wondering why
+PATCH https://localhost:5001/api/order/03beff68-bc70-4b34-8264-cc243f6ef686
+Content-Type: application/json
+
+[
+{
+"op": "add",
+"path": "/itemsIds",
+"value": [
+6
+]
+}
+]
+
+###
+PATCH https://localhost:5001/api/order/03beff68-bc70-4b34-8264-cc243f6ef686
+Content-Type: application/json
+
+[
+{
+"op": "remove",
+"path": "/itemsIds"
+}
+]

@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using SimpleAPI.Models;
 using SimpleAPI.Repositories;
@@ -45,11 +46,29 @@ namespace SimpleAPI.Controllers
         [HttpPut("{id:guid}")]
         public IActionResult Put(Guid id, Order request)
         {
-            var order = new Order
+            if (request.ItemsIds == null)
+                return BadRequest();
+
+            var order = _orderRepository.Get(id);
+
+            if (order == null)
+                return NotFound(new {Message = $"Item with id {id} not exist."});
+
+            order.ItemsIds = request.ItemsIds;
+            _orderRepository.Update(id, order);
+            return Ok();
+        }
+
+        [HttpPatch("{id:guid}")]
+        public IActionResult Patch(Guid id, JsonPatchDocument<Order> requestOp)
+        {
+            var order = _orderRepository.Get(id);
+            if (order == null)
             {
-                Id = id,
-                ItemsIds = request.ItemsIds
-            };
+                return NotFound(new {Message = $"Item with id {id} not exist."});
+            }
+
+            requestOp.ApplyTo(order);
             _orderRepository.Update(id, order);
             return Ok();
         }

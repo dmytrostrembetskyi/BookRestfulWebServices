@@ -8,7 +8,17 @@ Content-Type: application/json
 "itemsIds": [
 "1",
 "4"
-]
+],
+"currency": "EUR"
+}
+
+###
+POST https://localhost:5001/api/order
+Content-Type: application/json
+
+{
+"itemsIds": null,
+"currency": "Yes"
 }
 
 ###

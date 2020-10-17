@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
 
-namespace SimpleAPI.Models
+namespace SimpleAPI.Responses
 {
-    public class Order
+    public class OrderResponse
     {
         public Guid Id { get; set; }
         public IEnumerable<string> ItemsIds { get; set; }
         public string Currency { get; set; }
-        public bool IsInactive { get; set; }
     }
 }

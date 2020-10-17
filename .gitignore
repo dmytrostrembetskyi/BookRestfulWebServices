@@ -448,3 +448,4 @@ MigrationBackup/
 # Rider REST API requests and responses
 /.idea/.idea.BookRestfulWebServices/.idea/httpRequests/http-requests-log.http
 /.idea/.idea.BookRestfulWebServices/.idea/httpRequests/*.json
+/.idea/.idea.BookRestfulWebServices/.idea/httpRequests/*.txt

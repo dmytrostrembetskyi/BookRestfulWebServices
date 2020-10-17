@@ -10,8 +10,8 @@ using SimpleAPI.Responses;
 
 namespace SimpleAPI.Controllers
 {
-    [Route("api/order")]
-    [ApiController]
+    // [Route("api/order")]
+    // [ApiController]
     public class OrderController : ControllerBase
     {
         private readonly IOrderRepository _orderRepository;

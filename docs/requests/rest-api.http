@@ -1,4 +1,7 @@
-GET https://localhost:5001/api/order
+GET https://localhost:5001/api/order/
+
+###
+GET https://localhost:5001/api/order/givemeorders
 
 ###
 POST https://localhost:5001/api/order
@@ -12,7 +15,7 @@ Content-Type: application/json
 "currency": "EUR"
 }
 
-###
+### Not valid
 POST https://localhost:5001/api/order
 Content-Type: application/json
 
@@ -20,6 +23,12 @@ Content-Type: application/json
 "itemsIds": null,
 "currency": "Yes"
 }
+
+###
+POST https://localhost:5001/order
+
+###
+GET https://localhost:5001/order
 
 ###
 GET https://localhost:5001/api/order/0f8612a0-c08c-4ee8-b673-a3f25d563d10

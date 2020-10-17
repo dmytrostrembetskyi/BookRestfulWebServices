@@ -7,12 +7,12 @@ namespace SimpleAPI.Repositories
 {
     public class MemoryOrderRepository : IOrderRepository
     {
-        private IList<Order> _orders { get; set; }
-
         public MemoryOrderRepository()
         {
             _orders = new List<Order>();
         }
+
+        private IList<Order> _orders { get; }
 
         public void Add(Order order)
         {
@@ -26,7 +26,10 @@ namespace SimpleAPI.Repositories
             return target;
         }
 
-        public IEnumerable<Order> Get() => _orders;
+        public IEnumerable<Order> Get()
+        {
+            return _orders;
+        }
 
         public Order Get(Guid orderId)
         {
@@ -40,6 +43,5 @@ namespace SimpleAPI.Repositories
             if (result != null)
                 result.ItemsIds = order.ItemsIds;
         }
-
     }
 }

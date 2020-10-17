@@ -39,7 +39,7 @@ namespace SimpleAPI.Controllers
 
             _orderRepository.Add(order);
             // return Ok();
-            return CreatedAtAction(nameof(GetById), new { id = order.Id }, null);
+            return CreatedAtAction(nameof(GetById), new {id = order.Id}, null);
         }
 
         [HttpPut("{id:guid}")]
@@ -60,6 +60,5 @@ namespace SimpleAPI.Controllers
             _orderRepository.Delete(id);
             return Ok();
         }
-
     }
 }

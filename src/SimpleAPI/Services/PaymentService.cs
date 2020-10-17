@@ -1,5 +1,3 @@
-using System;
-
 namespace SimpleAPI.Services
 {
     public interface IPaymentService
@@ -9,11 +7,17 @@ namespace SimpleAPI.Services
 
     public class PaymentService : IPaymentService
     {
-        public string GetMessage() => "Pay me!";
+        public string GetMessage()
+        {
+            return "Pay me!";
+        }
     }
 
     public class ExternalPaymentService : IPaymentService
     {
-        public string GetMessage() => "Pay me! I am external service!";
+        public string GetMessage()
+        {
+            return "Pay me! I am external service!";
+        }
     }
 }

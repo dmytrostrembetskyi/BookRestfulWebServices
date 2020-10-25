@@ -10,8 +10,9 @@ using SimpleAPI.Responses;
 
 namespace SimpleAPI.Controllers
 {
-    // [Route("api/order")]
-    // [ApiController]
+    // [CustomOrdersRoute]
+    [Route("api/order")]
+    [ApiController]
     public class OrderController : ControllerBase
     {
         private readonly IOrderRepository _orderRepository;
@@ -27,6 +28,7 @@ namespace SimpleAPI.Controllers
             return Ok(Map(_orderRepository.Get()));
         }
 
+        // [HttpGet("{id}")]
         [HttpGet("{id:guid}")]
         public IActionResult GetById(Guid id)
         {
@@ -42,6 +44,7 @@ namespace SimpleAPI.Controllers
             return CreatedAtAction(nameof(GetById), new {id = order.Id}, null);
         }
 
+        // [HttpPut]
         [HttpPut("{id:guid}")]
         public IActionResult Put(Guid id, OrderRequest request)
         {
@@ -60,6 +63,7 @@ namespace SimpleAPI.Controllers
             return Ok();
         }
 
+        // [HttpPatch]
         [HttpPatch("{id:guid}")]
         public IActionResult Patch(Guid id, JsonPatchDocument<Order> requestOp)
         {
@@ -71,6 +75,7 @@ namespace SimpleAPI.Controllers
             return Ok();
         }
 
+        // [HttpDelete]
         [HttpDelete("{id:guid}")]
         public IActionResult Delete(Guid id)
         {

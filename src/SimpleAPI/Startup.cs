@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -46,14 +45,22 @@ namespace SimpleAPI
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
-            // app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute("default", "{controller}/{action}/{id?}");
-                endpoints.MapControllerRoute("order", "order/givemeorders", new {controller = "Order", action = "Get"});
-                endpoints.MapGet("order", context => context.Response.WriteAsync("Hi, from GET verb!"));
-                endpoints.MapPost("order", context => context.Response.WriteAsync("Hi, from POST verb!"));
-            });
+
+            // app.UseEndpoints(endpoints =>
+            // {
+            //     endpoints.MapControllerRoute("default", "{controller}/{action}/{id?}");
+            //     endpoints.MapControllerRoute("order", "order/givemeorders", new {controller = "Order", action = "Get"});
+            //     endpoints.MapGet("order", context => context.Response.WriteAsync("Hi, from GET verb!"));
+            //     endpoints.MapPost("order", context => context.Response.WriteAsync("Hi, from POST verb!"));
+            // });
+
+            // app.UseEndpoints(endpoints =>
+            // {
+            // endpoints.MapControllerRoute("default", "{controller}/{action}");
+            // endpoints.MapControllerRoute("default", "{controller}/{action}/{id:guid?}");
+            // });
+
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

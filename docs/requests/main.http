@@ -1,0 +1,20 @@
+GET https://localhost:5001/api/order/
+
+###
+GET https://localhost:5001/api/order/d07ce57f-1bd3-454c-b64a-5ddb00d6206e
+
+
+###
+POST https://localhost:5001/api/order
+Content-Type: application/json
+
+{
+"itemsIds": [
+"1",
+"4"
+],
+"currency": "EUR"
+}
+
+###
+DELETE https://localhost:5001/api/order/d07ce57f-1bd3-454c-b64a-5ddb00d6206e

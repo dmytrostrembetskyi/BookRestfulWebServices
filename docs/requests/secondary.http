@@ -1,37 +1,8 @@
-GET https://localhost:5001/api/order/
-
-###
-GET https://localhost:5001/api/order/givemeorders
-
-###
-POST https://localhost:5001/api/order
-Content-Type: application/json
-
-{
-"itemsIds": [
-"1",
-"4"
-],
-"currency": "EUR"
-}
-
-### Not valid
-POST https://localhost:5001/api/order
-Content-Type: application/json
-
-{
-"itemsIds": null,
-"currency": "Yes"
-}
-
 ###
 POST https://localhost:5001/order
 
 ###
 GET https://localhost:5001/order
-
-###
-GET https://localhost:5001/api/order/0f8612a0-c08c-4ee8-b673-a3f25d563d10
 
 ###
 PATCH https://localhost:5001/api/order/03beff68-bc70-4b34-8264-cc243f6ef686
@@ -74,4 +45,16 @@ Content-Type: application/json
 ]
 
 ###
-DELETE https://localhost:5001/api/order/b5d4a2bc-c888-4994-99a3-c48891c440b2
+GET https://localhost:5001/api/orders/
+
+###
+GET https://localhost:5001/api/order/givemeorders
+
+###
+POST https://localhost:5001/api/order
+Content-Type: application/json
+
+{
+"itemsIds": null,
+"currency": "Yes"
+}

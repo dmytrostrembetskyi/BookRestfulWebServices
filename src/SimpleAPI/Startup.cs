@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SimpleAPI.CustomRouting;
 using SimpleAPI.Repositories;
 
 namespace SimpleAPI
@@ -25,6 +27,11 @@ namespace SimpleAPI
             //     services.AddTransient<IPaymentService, PaymentService>();
             // else
             //     services.AddTransient<IPaymentService, ExternalPaymentService>();
+
+            services.Configure<RouteOptions>(options =>
+            {
+                options.ConstraintMap.Add("currency", typeof(CurrencyConstraint));
+            });
 
             services.AddSingleton<IOrderRepository, MemoryOrderRepository>();
             services.AddControllers()
@@ -54,13 +61,14 @@ namespace SimpleAPI
             //     endpoints.MapPost("order", context => context.Response.WriteAsync("Hi, from POST verb!"));
             // });
 
-            app.UseEndpoints(endpoints =>
-            {
+            // app.UseEndpoints(endpoints =>
+            // {
                 // endpoints.MapControllerRoute("default", "{controller}/{action}");
-                endpoints.MapControllerRoute("default", "{controller}/{action}/{id:guid?}");
-            });
+                // endpoints.MapControllerRoute("default", "{controller}/{action}/{id:guid?}");
+                // endpoints.MapControllerRoute("default", "{controller}/{action}/{currency}");
+            // });
 
-            // app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

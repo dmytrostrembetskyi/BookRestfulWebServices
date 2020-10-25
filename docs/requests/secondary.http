@@ -58,3 +58,6 @@ Content-Type: application/json
 "itemsIds": null,
 "currency": "Yes"
 }
+
+###
+GET https://localhost:5001/api/mycontroller/2.2

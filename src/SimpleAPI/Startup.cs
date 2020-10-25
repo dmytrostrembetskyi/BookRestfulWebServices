@@ -54,13 +54,13 @@ namespace SimpleAPI
             //     endpoints.MapPost("order", context => context.Response.WriteAsync("Hi, from POST verb!"));
             // });
 
-            // app.UseEndpoints(endpoints =>
-            // {
-            // endpoints.MapControllerRoute("default", "{controller}/{action}");
-            // endpoints.MapControllerRoute("default", "{controller}/{action}/{id:guid?}");
-            // });
+            app.UseEndpoints(endpoints =>
+            {
+                // endpoints.MapControllerRoute("default", "{controller}/{action}");
+                endpoints.MapControllerRoute("default", "{controller}/{action}/{id:guid?}");
+            });
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            // app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
